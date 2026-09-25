@@ -16,14 +16,14 @@ Input → Coordinator → Specialists → Verifier → Output
 
 | Actor | Input | Trách nhiệm | Output/handoff |
 | --- | --- | --- | --- |
-| Coordinator | TODO | TODO | TODO |
-| Order/item | TODO | TODO | TODO |
-| Payment | TODO | TODO | TODO |
-| Shipment | TODO | TODO | TODO |
-| Policy | TODO | TODO | TODO |
-| Verifier | TODO | TODO | TODO |
+| Coordinator | customer request + case context | Orchestrates specialist calls, coordinates evidence collection, manages turn order, and finalizes the case output | Emits case lifecycle events and hands off to specialists |
+| Order/item | order and item evidence | Verifies order status, item identity, and product/seller context | Returns normalized order-summary facts and evidence refs |
+| Payment | payment timeline and payment records | Reconciles the amount paid with the claimed refund and identifies mismatch or cancellation scenarios | Produces payment facts and the refund recommendation |
+| Shipment | shipment and carrier timeline | Confirms delivery dates, exceptions, and late-delivery signals | Returns delivery status and responsibility signals |
+| Policy | active policy version and claim topic | Checks policy rules for refund eligibility and obligation | Returns the entitlement verdict and policy reasons |
+| Verifier | full evidence set + draft output | Validates schema, cross-field consistency, claim linkage, and confidence bounds | Emits verification events and approves final output |
 
-Nêu rõ actor nào được quyền gọi tool nào. Tránh cho mọi agent quyền truy vấn tất cả tool nếu không cần thiết.
+Mỗi agent chỉ được phép gọi tool theo specialization của mình: order/item agent gọi order/item/seller/product tools; payment agent chỉ gọi payment tools; shipment agent chỉ gọi shipment tools; policy agent chỉ gọi policy tools; coordinator tổng hợp. Điều này giúp tránh dùng dữ liệu chéo case và giữ trace rõ ràng.
 
 ## 3. A2A protocol
 
