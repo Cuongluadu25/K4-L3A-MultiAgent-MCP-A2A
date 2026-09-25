@@ -1,0 +1,114 @@
+## L3A_CASE_001 topic=canceled_order_paid
+  status=canceled custdeliv=None est=2017-12-30T09h00h00-03h00 carrier=2017-12-22T09h00h00-03h00
+  item price=79.00 freight=10.00 limit=2017-12-23T09h00h00-03h00 seller=seller-e2a03ccf5ea8
+  item price=79.00 freight=18.00 limit=2018-05-14T09h00h00-03h00 seller=seller-e2a03ccf5ea8
+  pay seq=1 type=credit_card inst=1 val=79.00
+  pay seq=1 type=credit_card inst=1 val=18.00
+  payevent captured amt=79.00 st=confirmed
+  payevent captured amt=18.00 st=confirmed
+  shipevent delivered_late actor=seller st=confirmed
+  refund ERROR
+
+## L3A_CASE_002 topic=unavailable_order_paid
+  status=unavailable custdeliv=None est=2018-01-31T09h00h00-03h00 carrier=2018-01-23T09h00h00-03h00
+  item price=89.00 freight=10.00 limit=2018-01-24T09h00h00-03h00 seller=seller-8067c5e4834f
+  item price=89.00 freight=10.00 limit=2018-04-13T09h00h00-03h00 seller=seller-8067c5e4834f
+  pay seq=1 type=credit_card inst=1 val=89.00
+  pay seq=1 type=credit_card inst=1 val=89.00
+  payevent captured amt=89.00 st=confirmed
+  payevent captured amt=89.00 st=confirmed
+  refund ERROR
+
+## L3A_CASE_003 topic=late_delivery_seller
+  status=delivered custdeliv=2018-03-05T09h00h00-03h00 est=2018-03-01T09h00h00-03h00 carrier=2018-02-26T09h00h00-03h00
+  item price=79.00 freight=18.00 limit=2018-02-22T09h00h00-03h00 seller=seller-71303d7e93b3
+  item price=79.00 freight=10.00 limit=2018-03-12T09h00h00-03h00 seller=seller-71303d7e93b3
+  pay seq=1 type=credit_card inst=1 val=18.00
+  pay seq=1 type=credit_card inst=1 val=79.00
+  payevent captured amt=18.00 st=confirmed
+  payevent captured amt=79.00 st=confirmed
+  shipevent delivered_late actor=seller st=confirmed
+  refund ERROR
+
+## L3A_CASE_004 topic=late_delivery_logistics
+  status=delivered custdeliv=2018-04-07T09h00h00-03h00 est=2018-04-02T09h00h00-03h00 carrier=2018-03-25T09h00h00-03h00
+  item price=79.00 freight=18.00 limit=2018-03-26T09h00h00-03h00 seller=seller-fd28a6dfe413
+  item price=79.00 freight=10.00 limit=2018-02-11T09h00h00-03h00 seller=seller-fd28a6dfe413
+  pay seq=1 type=credit_card inst=1 val=16.00
+  pay seq=1 type=credit_card inst=1 val=89.00
+  payevent captured amt=16.00 st=confirmed
+  payevent captured amt=89.00 st=confirmed
+  shipevent delivered_late actor=logistics_provider st=confirmed
+  refund ERROR
+
+## L3A_CASE_005 topic=valid_split_payment
+  status=delivered custdeliv=2018-05-02T09h00h00-03h00 est=2018-05-03T09h00h00-03h00 carrier=2018-04-25T09h00h00-03h00
+  item price=79.00 freight=10.00 limit=2018-04-26T09h00h00-03h00 seller=seller-9a31fd9d697e
+  item price=79.00 freight=10.00 limit=2018-01-10T09h00h00-03h00 seller=seller-9a31fd9d697e
+  pay seq=1 type=credit_card inst=1 val=44.50
+  pay seq=2 type=voucher inst=1 val=44.50
+  pay seq=1 type=credit_card inst=1 val=52.00
+  payevent captured amt=44.50 st=confirmed
+  payevent captured amt=44.50 st=confirmed
+  payevent captured amt=52.00 st=confirmed
+  refund {"order_id": "9a31fd9d697e9670777501f720773fd9", "events": [{"order_id": "9a31fd9d697e9670777501f720773fd9", "event_at": "2018-01-18T09h00h00-03h00", "event_type": "refund_requested", "amount_brl": "52.00", "status": "failed"}]}
+
+## L3A_CASE_006 topic=payment_mismatch
+  status=delivered custdeliv=2018-06-03T09h00h00-03h00 est=2018-06-04T09h00h00-03h00 carrier=2018-05-27T09h00h00-03h00
+  item price=79.00 freight=10.00 limit=2018-05-28T09h00h00-03h00 seller=seller-fe51b7fac3be
+  item price=79.00 freight=10.00 limit=2018-09-09T09h00h00-03h00 seller=seller-fe51b7fac3be
+  pay seq=1 type=credit_card inst=1 val=35.00
+  pay seq=1 type=credit_card inst=1 val=89.00
+  payevent captured amt=35.00 st=confirmed
+  payevent reconciliation_mismatch amt=35.00 st=open
+  payevent captured amt=89.00 st=confirmed
+  refund {"order_id": "fe51b7fac3bea42115fa1c3b8973cba7", "events": [{"order_id": "fe51b7fac3bea42115fa1c3b8973cba7", "event_at": "2018-09-17T09h00h00-03h00", "event_type": "refund_requested", "amount_brl": "89.00", "status": "pending"}]}
+
+## L3A_CASE_007 topic=duplicate_charge
+  status=delivered custdeliv=2018-07-04T09h00h00-03h00 est=2018-07-05T09h00h00-03h00 carrier=2018-06-27T09h00h00-03h00
+  item price=79.00 freight=10.00 limit=2018-06-28T09h00h00-03h00 seller=seller-ded456690bcb
+  item price=79.00 freight=10.00 limit=2018-08-08T09h00h00-03h00 seller=seller-ded456690bcb
+  pay seq=1 type=credit_card inst=1 val=64.00
+  pay seq=2 type=voucher inst=1 val=64.00
+  pay seq=1 type=credit_card inst=1 val=64.00
+  pay seq=2 type=voucher inst=1 val=64.00
+  payevent captured amt=64.00 st=confirmed
+  payevent captured amt=64.00 st=confirmed
+  payevent captured amt=64.00 st=confirmed
+  payevent captured amt=64.00 st=confirmed
+  refund ERROR
+
+## L3A_CASE_008 topic=refund_pending
+  status=delivered custdeliv=2018-08-05T09h00h00-03h00 est=2018-08-06T09h00h00-03h00 carrier=2018-07-29T09h00h00-03h00
+  item price=79.00 freight=10.00 limit=2018-07-30T09h00h00-03h00 seller=seller-2c0032906c60
+  item price=79.00 freight=10.00 limit=2018-07-07T09h00h00-03h00 seller=seller-2c0032906c60
+  pay seq=1 type=credit_card inst=1 val=89.00
+  pay seq=1 type=credit_card inst=1 val=35.00
+  payevent captured amt=89.00 st=confirmed
+  payevent captured amt=35.00 st=confirmed
+  payevent reconciliation_mismatch amt=35.00 st=open
+  refund {"order_id": "2c0032906c603dcc21cd954828fa77d0", "events": [{"order_id": "2c0032906c603dcc21cd954828fa77d0", "event_at": "2018-08-07T09h00h00-03h00", "event_type": "refund_requested", "amount_brl": "89.00", "status": "pending"}]}
+
+## L3A_CASE_009 topic=refund_failed
+  status=delivered custdeliv=2018-09-06T09h00h00-03h00 est=2018-09-07T09h00h00-03h00 carrier=2018-08-30T09h00h00-03h00
+  item price=79.00 freight=10.00 limit=2018-08-31T09h00h00-03h00 seller=seller-3aaee056441d
+  item price=79.00 freight=10.00 limit=2018-06-06T09h00h00-03h00 seller=seller-3aaee056441d
+  pay seq=1 type=credit_card inst=1 val=52.00
+  pay seq=1 type=credit_card inst=1 val=44.50
+  pay seq=2 type=voucher inst=1 val=44.50
+  payevent captured amt=52.00 st=confirmed
+  payevent captured amt=44.50 st=confirmed
+  payevent captured amt=44.50 st=confirmed
+  refund {"order_id": "3aaee056441dcae251f360b1c71a7279", "events": [{"order_id": "3aaee056441dcae251f360b1c71a7279", "event_at": "2018-09-08T09h00h00-03h00", "event_type": "refund_requested", "amount_brl": "52.00", "status": "failed"}]}
+
+## L3A_CASE_010 topic=unsupported_claim
+  status=delivered custdeliv=2018-01-07T09h00h00-03h00 est=2018-01-08T09h00h00-03h00 carrier=2017-12-31T09h00h00-03h00
+  item price=79.00 freight=10.00 limit=2018-01-01T09h00h00-03h00 seller=seller-3a119f52de09
+  item price=79.00 freight=18.00 limit=2018-05-05T09h00h00-03h00 seller=seller-3a119f52de09
+  pay seq=1 type=credit_card inst=1 val=89.00
+  pay seq=1 type=credit_card inst=1 val=16.00
+  payevent captured amt=89.00 st=confirmed
+  payevent captured amt=16.00 st=confirmed
+  shipevent delivered_late actor=logistics_provider st=confirmed
+  refund ERROR
+

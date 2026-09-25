@@ -1,0 +1,212 @@
+{
+  "get_order": {
+    "description": "Return the authoritative order row for one order.",
+    "inputSchema": {
+      "properties": {
+        "case_id": {
+          "title": "Case Id",
+          "type": "string"
+        },
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "order_id"
+      ],
+      "type": "object",
+      "title": "get_orderArguments"
+    }
+  },
+  "get_order_items": {
+    "description": "Return item and seller rows belonging to one order.",
+    "inputSchema": {
+      "properties": {
+        "case_id": {
+          "title": "Case Id",
+          "type": "string"
+        },
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "order_id"
+      ],
+      "type": "object",
+      "title": "get_order_itemsArguments"
+    }
+  },
+  "get_order_payments": {
+    "description": "Return payment rows and lifecycle evidence belonging to one order.",
+    "inputSchema": {
+      "properties": {
+        "case_id": {
+          "title": "Case Id",
+          "type": "string"
+        },
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "order_id"
+      ],
+      "type": "object",
+      "title": "get_order_paymentsArguments"
+    }
+  },
+  "get_shipment_summary": {
+    "description": "Return delivery timestamps, seller handoff limits and shipment events.",
+    "inputSchema": {
+      "properties": {
+        "case_id": {
+          "title": "Case Id",
+          "type": "string"
+        },
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "order_id"
+      ],
+      "type": "object",
+      "title": "get_shipment_summaryArguments"
+    }
+  },
+  "get_sellers": {
+    "description": "Return seller records associated with an order's items.",
+    "inputSchema": {
+      "properties": {
+        "case_id": {
+          "title": "Case Id",
+          "type": "string"
+        },
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "order_id"
+      ],
+      "type": "object",
+      "title": "get_sellersArguments"
+    }
+  },
+  "get_policy": {
+    "description": "Return the public machine-readable policy for the requested version.",
+    "inputSchema": {
+      "properties": {
+        "case_id": {
+          "title": "Case Id",
+          "type": "string"
+        },
+        "policy_version": {
+          "title": "Policy Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "policy_version"
+      ],
+      "type": "object",
+      "title": "get_policyArguments"
+    }
+  },
+  "get_customer_history": {
+    "description": "Return authoritative order history for one scoped customer identity.",
+    "inputSchema": {
+      "properties": {
+        "case_id": {
+          "title": "Case Id",
+          "type": "string"
+        },
+        "customer_unique_id": {
+          "title": "Customer Unique Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "customer_unique_id"
+      ],
+      "type": "object",
+      "title": "get_customer_historyArguments"
+    }
+  },
+  "get_product_context": {
+    "description": "Return products and translated categories associated with a scoped order.",
+    "inputSchema": {
+      "properties": {
+        "case_id": {
+          "title": "Case Id",
+          "type": "string"
+        },
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "order_id"
+      ],
+      "type": "object",
+      "title": "get_product_contextArguments"
+    }
+  },
+  "get_payment_timeline": {
+    "description": "Return base payments and authoritative payment lifecycle events.",
+    "inputSchema": {
+      "properties": {
+        "case_id": {
+          "title": "Case Id",
+          "type": "string"
+        },
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "order_id"
+      ],
+      "type": "object",
+      "title": "get_payment_timelineArguments"
+    }
+  },
+  "get_refund_timeline": {
+    "description": "Return authoritative refund lifecycle events for a scoped order.",
+    "inputSchema": {
+      "properties": {
+        "case_id": {
+          "title": "Case Id",
+          "type": "string"
+        },
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "order_id"
+      ],
+      "type": "object",
+      "title": "get_refund_timelineArguments"
+    }
+  }
+}

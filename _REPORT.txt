@@ -1,0 +1,154 @@
+==============================================================================
+L3A_CASE_001  claim_topic_a=canceled_order_paid  claims=['canceled_order_paid', 'requested_full_refund']
+  order: status=canceled purchase=2017-12-20T09:00:00-03:00 approved=2017-12-20T10:00:00-03:00
+         carrier=2017-12-22T09:00:00-03:00 customer=None estimated=2017-12-30T09:00:00-03:00
+  item: id=item-e2a03ccf5ea8 seller=seller-e2a03ccf5ea8 price=79.00 freight=10.00 limit=2017-12-23T09:00:00-03:00
+  item: id=item-e2a03ccf5ea8 seller=seller-e2a03ccf5ea8 price=79.00 freight=18.00 limit=2018-05-14T09:00:00-03:00
+  pay:  seq=1 type=credit_card inst=1 value=79.00
+  pay:  seq=1 type=credit_card inst=1 value=18.00
+  pay_event: captured at=2017-12-20T10:00:00-03:00 amt=79.00 status=confirmed
+  pay_event: captured at=2018-05-11T10:00:00-03:00 amt=18.00 status=confirmed
+  ship_event: delivered_late at=2018-05-25T09:00:00-03:00 actor=seller status=confirmed
+  ship_limit: {'order_item_id': 'item-e2a03ccf5ea8', 'seller_id': 'seller-e2a03ccf5ea8', 'shipping_limit_at': '2017-12-23T09:00:00-03:00'}
+  ship_limit: {'order_item_id': 'item-e2a03ccf5ea8', 'seller_id': 'seller-e2a03ccf5ea8', 'shipping_limit_at': '2018-05-14T09:00:00-03:00'}
+  refund: ERROR -> RuntimeError: MCP tool get_refund_timeline failed: Error executing tool get_refund_timeline
+  sellers: ['seller-e2a03ccf5ea8']
+==============================================================================
+L3A_CASE_002  claim_topic_a=unavailable_order_paid  claims=['unavailable_order_paid', 'requested_full_refund']
+  order: status=unavailable purchase=2018-01-21T09:00:00-03:00 approved=2018-01-21T10:00:00-03:00
+         carrier=2018-01-23T09:00:00-03:00 customer=None estimated=2018-01-31T09:00:00-03:00
+  item: id=item-8067c5e4834f seller=seller-8067c5e4834f price=89.00 freight=10.00 limit=2018-01-24T09:00:00-03:00
+  item: id=item-8067c5e4834f seller=seller-8067c5e4834f price=89.00 freight=10.00 limit=2018-04-13T09:00:00-03:00
+  pay:  seq=1 type=credit_card inst=1 value=89.00
+  pay:  seq=1 type=credit_card inst=1 value=89.00
+  pay_event: captured at=2018-01-21T10:00:00-03:00 amt=89.00 status=confirmed
+  pay_event: captured at=2018-04-10T10:00:00-03:00 amt=89.00 status=confirmed
+  ship_limit: {'order_item_id': 'item-8067c5e4834f', 'seller_id': 'seller-8067c5e4834f', 'shipping_limit_at': '2018-01-24T09:00:00-03:00'}
+  ship_limit: {'order_item_id': 'item-8067c5e4834f', 'seller_id': 'seller-8067c5e4834f', 'shipping_limit_at': '2018-04-13T09:00:00-03:00'}
+  refund: ERROR -> RuntimeError: MCP tool get_refund_timeline failed: Error executing tool get_refund_timeline
+  sellers: ['seller-8067c5e4834f']
+==============================================================================
+L3A_CASE_003  claim_topic_a=late_delivery_seller  claims=['late_delivery_seller', 'requested_full_refund']
+  order: status=delivered purchase=2018-02-19T09:00:00-03:00 approved=2018-02-19T10:00:00-03:00
+         carrier=2018-02-26T09:00:00-03:00 customer=2018-03-05T09:00:00-03:00 estimated=2018-03-01T09:00:00-03:00
+  item: id=item-71303d7e93b3 seller=seller-71303d7e93b3 price=79.00 freight=18.00 limit=2018-02-22T09:00:00-03:00
+  item: id=item-71303d7e93b3 seller=seller-71303d7e93b3 price=79.00 freight=10.00 limit=2018-03-12T09:00:00-03:00
+  pay:  seq=1 type=credit_card inst=1 value=18.00
+  pay:  seq=1 type=credit_card inst=1 value=79.00
+  pay_event: captured at=2018-02-19T10:00:00-03:00 amt=18.00 status=confirmed
+  pay_event: captured at=2018-03-09T10:00:00-03:00 amt=79.00 status=confirmed
+  ship_event: delivered_late at=2018-03-05T09:00:00-03:00 actor=seller status=confirmed
+  ship_limit: {'order_item_id': 'item-71303d7e93b3', 'seller_id': 'seller-71303d7e93b3', 'shipping_limit_at': '2018-02-22T09:00:00-03:00'}
+  ship_limit: {'order_item_id': 'item-71303d7e93b3', 'seller_id': 'seller-71303d7e93b3', 'shipping_limit_at': '2018-03-12T09:00:00-03:00'}
+  refund: ERROR -> RuntimeError: MCP tool get_refund_timeline failed: Error executing tool get_refund_timeline
+  sellers: ['seller-71303d7e93b3']
+==============================================================================
+L3A_CASE_004  claim_topic_a=late_delivery_logistics  claims=['late_delivery_logistics', 'requested_full_refund']
+  order: status=delivered purchase=2018-03-23T09:00:00-03:00 approved=2018-03-23T10:00:00-03:00
+         carrier=2018-03-25T09:00:00-03:00 customer=2018-04-07T09:00:00-03:00 estimated=2018-04-02T09:00:00-03:00
+  item: id=item-fd28a6dfe413 seller=seller-fd28a6dfe413 price=79.00 freight=18.00 limit=2018-03-26T09:00:00-03:00
+  item: id=item-fd28a6dfe413 seller=seller-fd28a6dfe413 price=79.00 freight=10.00 limit=2018-02-11T09:00:00-03:00
+  pay:  seq=1 type=credit_card inst=1 value=16.00
+  pay:  seq=1 type=credit_card inst=1 value=89.00
+  pay_event: captured at=2018-03-23T10:00:00-03:00 amt=16.00 status=confirmed
+  pay_event: captured at=2018-02-08T10:00:00-03:00 amt=89.00 status=confirmed
+  ship_event: delivered_late at=2018-04-07T09:00:00-03:00 actor=logistics_provider status=confirmed
+  ship_limit: {'order_item_id': 'item-fd28a6dfe413', 'seller_id': 'seller-fd28a6dfe413', 'shipping_limit_at': '2018-03-26T09:00:00-03:00'}
+  ship_limit: {'order_item_id': 'item-fd28a6dfe413', 'seller_id': 'seller-fd28a6dfe413', 'shipping_limit_at': '2018-02-11T09:00:00-03:00'}
+  refund: ERROR -> RuntimeError: MCP tool get_refund_timeline failed: Error executing tool get_refund_timeline
+  sellers: ['seller-fd28a6dfe413']
+==============================================================================
+L3A_CASE_005  claim_topic_a=valid_split_payment  claims=['valid_split_payment', 'requested_full_refund']
+  order: status=delivered purchase=2018-04-23T09:00:00-03:00 approved=2018-04-23T10:00:00-03:00
+         carrier=2018-04-25T09:00:00-03:00 customer=2018-05-02T09:00:00-03:00 estimated=2018-05-03T09:00:00-03:00
+  item: id=item-9a31fd9d697e seller=seller-9a31fd9d697e price=79.00 freight=10.00 limit=2018-04-26T09:00:00-03:00
+  item: id=item-9a31fd9d697e seller=seller-9a31fd9d697e price=79.00 freight=10.00 limit=2018-01-10T09:00:00-03:00
+  pay:  seq=1 type=credit_card inst=1 value=44.50
+  pay:  seq=2 type=voucher inst=1 value=44.50
+  pay:  seq=1 type=credit_card inst=1 value=52.00
+  pay_event: captured at=2018-04-23T10:00:00-03:00 amt=44.50 status=confirmed
+  pay_event: captured at=2018-04-23T11:00:00-03:00 amt=44.50 status=confirmed
+  pay_event: captured at=2018-01-07T10:00:00-03:00 amt=52.00 status=confirmed
+  ship_limit: {'order_item_id': 'item-9a31fd9d697e', 'seller_id': 'seller-9a31fd9d697e', 'shipping_limit_at': '2018-04-26T09:00:00-03:00'}
+  ship_limit: {'order_item_id': 'item-9a31fd9d697e', 'seller_id': 'seller-9a31fd9d697e', 'shipping_limit_at': '2018-01-10T09:00:00-03:00'}
+  refund: {"order_id": "9a31fd9d697e9670777501f720773fd9", "events": [{"order_id": "9a31fd9d697e9670777501f720773fd9", "event_at": "2018-01-18T09:00:00-03:00", "event_type": "refund_requested", "amount_brl": "52.00", "status": "failed"}]}
+  sellers: ['seller-9a31fd9d697e']
+==============================================================================
+L3A_CASE_006  claim_topic_a=payment_mismatch  claims=['payment_mismatch', 'requested_full_refund']
+  order: status=delivered purchase=2018-05-25T09:00:00-03:00 approved=2018-05-25T10:00:00-03:00
+         carrier=2018-05-27T09:00:00-03:00 customer=2018-06-03T09:00:00-03:00 estimated=2018-06-04T09:00:00-03:00
+  item: id=item-fe51b7fac3be seller=seller-fe51b7fac3be price=79.00 freight=10.00 limit=2018-05-28T09:00:00-03:00
+  item: id=item-fe51b7fac3be seller=seller-fe51b7fac3be price=79.00 freight=10.00 limit=2018-09-09T09:00:00-03:00
+  pay:  seq=1 type=credit_card inst=1 value=35.00
+  pay:  seq=1 type=credit_card inst=1 value=89.00
+  pay_event: captured at=2018-05-25T10:00:00-03:00 amt=35.00 status=confirmed
+  pay_event: reconciliation_mismatch at=2018-05-25T12:00:00-03:00 amt=35.00 status=open
+  pay_event: captured at=2018-09-06T10:00:00-03:00 amt=89.00 status=confirmed
+  ship_limit: {'order_item_id': 'item-fe51b7fac3be', 'seller_id': 'seller-fe51b7fac3be', 'shipping_limit_at': '2018-05-28T09:00:00-03:00'}
+  ship_limit: {'order_item_id': 'item-fe51b7fac3be', 'seller_id': 'seller-fe51b7fac3be', 'shipping_limit_at': '2018-09-09T09:00:00-03:00'}
+  refund: {"order_id": "fe51b7fac3bea42115fa1c3b8973cba7", "events": [{"order_id": "fe51b7fac3bea42115fa1c3b8973cba7", "event_at": "2018-09-17T09:00:00-03:00", "event_type": "refund_requested", "amount_brl": "89.00", "status": "pending"}]}
+  sellers: ['seller-fe51b7fac3be']
+==============================================================================
+L3A_CASE_007  claim_topic_a=duplicate_charge  claims=['duplicate_charge', 'requested_full_refund']
+  order: status=delivered purchase=2018-06-25T09:00:00-03:00 approved=2018-06-25T10:00:00-03:00
+         carrier=2018-06-27T09:00:00-03:00 customer=2018-07-04T09:00:00-03:00 estimated=2018-07-05T09:00:00-03:00
+  item: id=item-ded456690bcb seller=seller-ded456690bcb price=79.00 freight=10.00 limit=2018-06-28T09:00:00-03:00
+  item: id=item-ded456690bcb seller=seller-ded456690bcb price=79.00 freight=10.00 limit=2018-08-08T09:00:00-03:00
+  pay:  seq=1 type=credit_card inst=1 value=64.00
+  pay:  seq=2 type=voucher inst=1 value=64.00
+  pay:  seq=1 type=credit_card inst=1 value=64.00
+  pay:  seq=2 type=voucher inst=1 value=64.00
+  pay_event: captured at=2018-06-25T10:00:00-03:00 amt=64.00 status=confirmed
+  pay_event: captured at=2018-06-25T11:00:00-03:00 amt=64.00 status=confirmed
+  pay_event: captured at=2018-08-05T10:00:00-03:00 amt=64.00 status=confirmed
+  pay_event: captured at=2018-08-05T11:00:00-03:00 amt=64.00 status=confirmed
+  ship_limit: {'order_item_id': 'item-ded456690bcb', 'seller_id': 'seller-ded456690bcb', 'shipping_limit_at': '2018-06-28T09:00:00-03:00'}
+  ship_limit: {'order_item_id': 'item-ded456690bcb', 'seller_id': 'seller-ded456690bcb', 'shipping_limit_at': '2018-08-08T09:00:00-03:00'}
+  refund: ERROR -> RuntimeError: MCP tool get_refund_timeline failed: Error executing tool get_refund_timeline
+  sellers: ['seller-ded456690bcb']
+==============================================================================
+L3A_CASE_008  claim_topic_a=refund_pending  claims=['refund_pending', 'requested_full_refund']
+  order: status=delivered purchase=2018-07-27T09:00:00-03:00 approved=2018-07-27T10:00:00-03:00
+         carrier=2018-07-29T09:00:00-03:00 customer=2018-08-05T09:00:00-03:00 estimated=2018-08-06T09:00:00-03:00
+  item: id=item-2c0032906c60 seller=seller-2c0032906c60 price=79.00 freight=10.00 limit=2018-07-30T09:00:00-03:00
+  item: id=item-2c0032906c60 seller=seller-2c0032906c60 price=79.00 freight=10.00 limit=2018-07-07T09:00:00-03:00
+  pay:  seq=1 type=credit_card inst=1 value=89.00
+  pay:  seq=1 type=credit_card inst=1 value=35.00
+  pay_event: captured at=2018-07-27T10:00:00-03:00 amt=89.00 status=confirmed
+  pay_event: captured at=2018-07-04T10:00:00-03:00 amt=35.00 status=confirmed
+  pay_event: reconciliation_mismatch at=2018-07-04T12:00:00-03:00 amt=35.00 status=open
+  ship_limit: {'order_item_id': 'item-2c0032906c60', 'seller_id': 'seller-2c0032906c60', 'shipping_limit_at': '2018-07-30T09:00:00-03:00'}
+  ship_limit: {'order_item_id': 'item-2c0032906c60', 'seller_id': 'seller-2c0032906c60', 'shipping_limit_at': '2018-07-07T09:00:00-03:00'}
+  refund: {"order_id": "2c0032906c603dcc21cd954828fa77d0", "events": [{"order_id": "2c0032906c603dcc21cd954828fa77d0", "event_at": "2018-08-07T09:00:00-03:00", "event_type": "refund_requested", "amount_brl": "89.00", "status": "pending"}]}
+  sellers: ['seller-2c0032906c60']
+==============================================================================
+L3A_CASE_009  claim_topic_a=refund_failed  claims=['refund_failed', 'requested_full_refund']
+  order: status=delivered purchase=2018-08-28T09:00:00-03:00 approved=2018-08-28T10:00:00-03:00
+         carrier=2018-08-30T09:00:00-03:00 customer=2018-09-06T09:00:00-03:00 estimated=2018-09-07T09:00:00-03:00
+  item: id=item-3aaee056441d seller=seller-3aaee056441d price=79.00 freight=10.00 limit=2018-08-31T09:00:00-03:00
+  item: id=item-3aaee056441d seller=seller-3aaee056441d price=79.00 freight=10.00 limit=2018-06-06T09:00:00-03:00
+  pay:  seq=1 type=credit_card inst=1 value=52.00
+  pay:  seq=1 type=credit_card inst=1 value=44.50
+  pay:  seq=2 type=voucher inst=1 value=44.50
+  pay_event: captured at=2018-08-28T10:00:00-03:00 amt=52.00 status=confirmed
+  pay_event: captured at=2018-06-03T10:00:00-03:00 amt=44.50 status=confirmed
+  pay_event: captured at=2018-06-03T11:00:00-03:00 amt=44.50 status=confirmed
+  ship_limit: {'order_item_id': 'item-3aaee056441d', 'seller_id': 'seller-3aaee056441d', 'shipping_limit_at': '2018-08-31T09:00:00-03:00'}
+  ship_limit: {'order_item_id': 'item-3aaee056441d', 'seller_id': 'seller-3aaee056441d', 'shipping_limit_at': '2018-06-06T09:00:00-03:00'}
+  refund: {"order_id": "3aaee056441dcae251f360b1c71a7279", "events": [{"order_id": "3aaee056441dcae251f360b1c71a7279", "event_at": "2018-09-08T09:00:00-03:00", "event_type": "refund_requested", "amount_brl": "52.00", "status": "failed"}]}
+  sellers: ['seller-3aaee056441d']
+==============================================================================
+L3A_CASE_010  claim_topic_a=unsupported_claim  claims=['unsupported_claim', 'requested_full_refund']
+  order: status=delivered purchase=2017-12-29T09:00:00-03:00 approved=2017-12-29T10:00:00-03:00
+         carrier=2017-12-31T09:00:00-03:00 customer=2018-01-07T09:00:00-03:00 estimated=2018-01-08T09:00:00-03:00
+  item: id=item-3a119f52de09 seller=seller-3a119f52de09 price=79.00 freight=10.00 limit=2018-01-01T09:00:00-03:00
+  item: id=item-3a119f52de09 seller=seller-3a119f52de09 price=79.00 freight=18.00 limit=2018-05-05T09:00:00-03:00
+  pay:  seq=1 type=credit_card inst=1 value=89.00
+  pay:  seq=1 type=credit_card inst=1 value=16.00
+  pay_event: captured at=2017-12-29T10:00:00-03:00 amt=89.00 status=confirmed
+  pay_event: captured at=2018-05-02T10:00:00-03:00 amt=16.00 status=confirmed
+  ship_event: delivered_late at=2018-05-17T09:00:00-03:00 actor=logistics_provider status=confirmed
+  ship_limit: {'order_item_id': 'item-3a119f52de09', 'seller_id': 'seller-3a119f52de09', 'shipping_limit_at': '2018-01-01T09:00:00-03:00'}
+  ship_limit: {'order_item_id': 'item-3a119f52de09', 'seller_id': 'seller-3a119f52de09', 'shipping_limit_at': '2018-05-05T09:00:00-03:00'}
+  refund: ERROR -> RuntimeError: MCP tool get_refund_timeline failed: Error executing tool get_refund_timeline
+  sellers: ['seller-3a119f52de09']

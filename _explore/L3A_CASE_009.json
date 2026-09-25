@@ -1,0 +1,243 @@
+{
+  "case": {
+    "case_id": "L3A_CASE_009",
+    "opened_at": "2018-09-09T09:00:00-03:00",
+    "customer_request": {
+      "language": "vi",
+      "message": "Đơn hàng có dấu hiệu bất thường sau thanh toán. Hãy xác minh trạng thái, timeline và quyền lợi phù hợp.",
+      "claimed_order_id": "3aaee056441dcae251f360b1c71a7279",
+      "claims": [
+        {
+          "claim_id": "claim-009-a",
+          "topic": "refund_failed"
+        },
+        {
+          "claim_id": "claim-009-b",
+          "topic": "requested_full_refund"
+        }
+      ]
+    },
+    "policy_version": "EC_POLICY_V1"
+  },
+  "topic": "refund_failed",
+  "get_order": {
+    "schema_version": "day09-mcp-evidence-v1",
+    "evidence_ref": "ev_FSOfO7kYxpKfWCrft_i-JLfs0gwM5voE",
+    "result_hash": "sha256:613f5a7189b9623039294e24044ed133f360e1f49e6d898a1ceffad404fb2769",
+    "domain": "order",
+    "data": {
+      "order_id": "3aaee056441dcae251f360b1c71a7279",
+      "customer_id": "customer-row-3aaee056441d",
+      "order_status": "delivered",
+      "order_purchase_timestamp": "2018-08-28T09:00:00-03:00",
+      "order_approved_at": "2018-08-28T10:00:00-03:00",
+      "order_delivered_carrier_date": "2018-08-30T09:00:00-03:00",
+      "order_delivered_customer_date": "2018-09-06T09:00:00-03:00",
+      "order_estimated_delivery_date": "2018-09-07T09:00:00-03:00"
+    },
+    "warnings": []
+  },
+  "get_order_items": {
+    "schema_version": "day09-mcp-evidence-v1",
+    "evidence_ref": "ev_kUu85etqb8Tg4L17NgKVlhOHfEovjddt",
+    "result_hash": "sha256:d91fd2976bfdd905f1e843cd8d0eeb8ad7d967ba2e56c82a68d535571805b3d9",
+    "domain": "item",
+    "data": [
+      {
+        "order_id": "3aaee056441dcae251f360b1c71a7279",
+        "order_item_id": "item-3aaee056441d",
+        "product_id": "product-3aaee056441d",
+        "seller_id": "seller-3aaee056441d",
+        "shipping_limit_date": "2018-08-31T09:00:00-03:00",
+        "price": "79.00",
+        "freight_value": "10.00"
+      },
+      {
+        "order_id": "3aaee056441dcae251f360b1c71a7279",
+        "order_item_id": "item-3aaee056441d",
+        "product_id": "product-3aaee056441d",
+        "seller_id": "seller-3aaee056441d",
+        "shipping_limit_date": "2018-06-06T09:00:00-03:00",
+        "price": "79.00",
+        "freight_value": "10.00"
+      }
+    ],
+    "warnings": []
+  },
+  "get_order_payments": {
+    "schema_version": "day09-mcp-evidence-v1",
+    "evidence_ref": "ev_cr6uGO4LylhNUswUHAOUYNByhHjh_2Az",
+    "result_hash": "sha256:b78b125a7af4bc106f73180f0c4f8d87ad998bb90dffad6384441b4b686fa31f",
+    "domain": "payment",
+    "data": [
+      {
+        "order_id": "3aaee056441dcae251f360b1c71a7279",
+        "payment_sequential": "1",
+        "payment_type": "credit_card",
+        "payment_installments": "1",
+        "payment_value": "52.00"
+      },
+      {
+        "order_id": "3aaee056441dcae251f360b1c71a7279",
+        "payment_sequential": "1",
+        "payment_type": "credit_card",
+        "payment_installments": "1",
+        "payment_value": "44.50"
+      },
+      {
+        "order_id": "3aaee056441dcae251f360b1c71a7279",
+        "payment_sequential": "2",
+        "payment_type": "voucher",
+        "payment_installments": "1",
+        "payment_value": "44.50"
+      }
+    ],
+    "warnings": []
+  },
+  "get_shipment_summary": {
+    "schema_version": "day09-mcp-evidence-v1",
+    "evidence_ref": "ev_MTX9Y8tth_zo8fRqboY-MFBK6QQ98d_r",
+    "result_hash": "sha256:6077a1a54b9b508e1c53cd79022af6343c5b11650cd467c86fa7aa4ebf448ce2",
+    "domain": "shipment",
+    "data": {
+      "order_id": "3aaee056441dcae251f360b1c71a7279",
+      "order_status": "delivered",
+      "delivered_carrier_at": "2018-08-30T09:00:00-03:00",
+      "delivered_customer_at": "2018-09-06T09:00:00-03:00",
+      "estimated_delivery_at": "2018-09-07T09:00:00-03:00",
+      "shipping_limits": [
+        {
+          "order_item_id": "item-3aaee056441d",
+          "seller_id": "seller-3aaee056441d",
+          "shipping_limit_at": "2018-08-31T09:00:00-03:00"
+        },
+        {
+          "order_item_id": "item-3aaee056441d",
+          "seller_id": "seller-3aaee056441d",
+          "shipping_limit_at": "2018-06-06T09:00:00-03:00"
+        }
+      ],
+      "events": []
+    },
+    "warnings": []
+  },
+  "get_sellers": {
+    "schema_version": "day09-mcp-evidence-v1",
+    "evidence_ref": "ev_F4FAjroplo-A38dN1QzGRdukhKUXds4c",
+    "result_hash": "sha256:e9e08ebb14d4d02c0d5e2ab34892d1207d57599ab0fc5c4e9b249f6056a265cc",
+    "domain": "seller",
+    "data": [
+      {
+        "seller_id": "seller-3aaee056441d",
+        "seller_zip_code_prefix": "01001",
+        "seller_city": "sao_paulo",
+        "seller_state": "SP"
+      }
+    ],
+    "warnings": []
+  },
+  "get_payment_timeline": {
+    "schema_version": "day09-mcp-evidence-v1",
+    "evidence_ref": "ev_bitPQd4naXPDiH7TG90ETiCVqW1JSMV1",
+    "result_hash": "sha256:fea08f20723f16f1199162bccba5bf619feb99ead8e99a41f4640bff2393efd8",
+    "domain": "payment",
+    "data": {
+      "order_id": "3aaee056441dcae251f360b1c71a7279",
+      "payments": [
+        {
+          "order_id": "3aaee056441dcae251f360b1c71a7279",
+          "payment_sequential": "1",
+          "payment_type": "credit_card",
+          "payment_installments": "1",
+          "payment_value": "52.00"
+        },
+        {
+          "order_id": "3aaee056441dcae251f360b1c71a7279",
+          "payment_sequential": "1",
+          "payment_type": "credit_card",
+          "payment_installments": "1",
+          "payment_value": "44.50"
+        },
+        {
+          "order_id": "3aaee056441dcae251f360b1c71a7279",
+          "payment_sequential": "2",
+          "payment_type": "voucher",
+          "payment_installments": "1",
+          "payment_value": "44.50"
+        }
+      ],
+      "events": [
+        {
+          "order_id": "3aaee056441dcae251f360b1c71a7279",
+          "event_at": "2018-08-28T10:00:00-03:00",
+          "event_type": "captured",
+          "amount_brl": "52.00",
+          "status": "confirmed"
+        },
+        {
+          "order_id": "3aaee056441dcae251f360b1c71a7279",
+          "event_at": "2018-06-03T10:00:00-03:00",
+          "event_type": "captured",
+          "amount_brl": "44.50",
+          "status": "confirmed"
+        },
+        {
+          "order_id": "3aaee056441dcae251f360b1c71a7279",
+          "event_at": "2018-06-03T11:00:00-03:00",
+          "event_type": "captured",
+          "amount_brl": "44.50",
+          "status": "confirmed"
+        }
+      ]
+    },
+    "warnings": []
+  },
+  "get_refund_timeline": {
+    "schema_version": "day09-mcp-evidence-v1",
+    "evidence_ref": "ev_jW9NWA-4ARxGWtV1SKUBd6wRZ0T63xoY",
+    "result_hash": "sha256:1adefaca57195d9d7dea606ad8c8aba548387066851a7a753dd9b0bbaedfab1c",
+    "domain": "refund",
+    "data": {
+      "order_id": "3aaee056441dcae251f360b1c71a7279",
+      "events": [
+        {
+          "order_id": "3aaee056441dcae251f360b1c71a7279",
+          "event_at": "2018-09-08T09:00:00-03:00",
+          "event_type": "refund_requested",
+          "amount_brl": "52.00",
+          "status": "failed"
+        }
+      ]
+    },
+    "warnings": []
+  },
+  "get_product_context": {
+    "schema_version": "day09-mcp-evidence-v1",
+    "evidence_ref": "ev_yjNf7Q6LSXVZZCQrGHeRMh_XuTO9ESiu",
+    "result_hash": "sha256:337f5ee4cef849a8641829259d361341666d73fd04171158da6f78460af84ff7",
+    "domain": "product",
+    "data": [
+      {
+        "order_item_id": "item-3aaee056441d",
+        "product_id": "product-3aaee056441d",
+        "seller_id": "seller-3aaee056441d",
+        "product": {
+          "product_id": "product-3aaee056441d",
+          "product_category_name": "utilidades_domesticas"
+        },
+        "category_name_english": "housewares"
+      },
+      {
+        "order_item_id": "item-3aaee056441d",
+        "product_id": "product-3aaee056441d",
+        "seller_id": "seller-3aaee056441d",
+        "product": {
+          "product_id": "product-3aaee056441d",
+          "product_category_name": "utilidades_domesticas"
+        },
+        "category_name_english": "housewares"
+      }
+    ],
+    "warnings": []
+  }
+}

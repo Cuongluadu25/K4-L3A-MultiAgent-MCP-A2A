@@ -1,0 +1,206 @@
+{
+  "case": {
+    "case_id": "L3A_CASE_002",
+    "opened_at": "2018-02-02T09:00:00-03:00",
+    "customer_request": {
+      "language": "vi",
+      "message": "Khách hàng phản ánh giao nhận không đúng cam kết. Hãy xác định bên chịu trách nhiệm bằng evidence.",
+      "claimed_order_id": "8067c5e4834f3c0a3c8a4e921d65c5b1",
+      "claims": [
+        {
+          "claim_id": "claim-002-a",
+          "topic": "unavailable_order_paid"
+        },
+        {
+          "claim_id": "claim-002-b",
+          "topic": "requested_full_refund"
+        }
+      ]
+    },
+    "policy_version": "EC_POLICY_V1"
+  },
+  "topic": "unavailable_order_paid",
+  "get_order": {
+    "schema_version": "day09-mcp-evidence-v1",
+    "evidence_ref": "ev_xmQN2PSgIjeoKzN48SXa0IWsC9IU_xgU",
+    "result_hash": "sha256:f66556e472c9c989a15540ec50d3f5294e1d21a74f39d4ee6df4530c6ff79e51",
+    "domain": "order",
+    "data": {
+      "order_id": "8067c5e4834f3c0a3c8a4e921d65c5b1",
+      "customer_id": "customer-row-8067c5e4834f",
+      "order_status": "unavailable",
+      "order_purchase_timestamp": "2018-01-21T09:00:00-03:00",
+      "order_approved_at": "2018-01-21T10:00:00-03:00",
+      "order_delivered_carrier_date": "2018-01-23T09:00:00-03:00",
+      "order_delivered_customer_date": null,
+      "order_estimated_delivery_date": "2018-01-31T09:00:00-03:00"
+    },
+    "warnings": []
+  },
+  "get_order_items": {
+    "schema_version": "day09-mcp-evidence-v1",
+    "evidence_ref": "ev_6KbdC12rJaNb1bPGKMy_Uiolt5WoAekX",
+    "result_hash": "sha256:fba3f981aa8732f5e7254970df12e98b63403293f032cd400bf8485041def8bd",
+    "domain": "item",
+    "data": [
+      {
+        "order_id": "8067c5e4834f3c0a3c8a4e921d65c5b1",
+        "order_item_id": "item-8067c5e4834f",
+        "product_id": "product-8067c5e4834f",
+        "seller_id": "seller-8067c5e4834f",
+        "shipping_limit_date": "2018-01-24T09:00:00-03:00",
+        "price": "89.00",
+        "freight_value": "10.00"
+      },
+      {
+        "order_id": "8067c5e4834f3c0a3c8a4e921d65c5b1",
+        "order_item_id": "item-8067c5e4834f",
+        "product_id": "product-8067c5e4834f",
+        "seller_id": "seller-8067c5e4834f",
+        "shipping_limit_date": "2018-04-13T09:00:00-03:00",
+        "price": "89.00",
+        "freight_value": "10.00"
+      }
+    ],
+    "warnings": []
+  },
+  "get_order_payments": {
+    "schema_version": "day09-mcp-evidence-v1",
+    "evidence_ref": "ev_evohNrloMoLE_cKwMcMg-7GXQaV1WGhF",
+    "result_hash": "sha256:7768e74fae3c6ea67b3f6c1f7eb318c4f8c7b99e0859ea94f084a8f5d0ed4162",
+    "domain": "payment",
+    "data": [
+      {
+        "order_id": "8067c5e4834f3c0a3c8a4e921d65c5b1",
+        "payment_sequential": "1",
+        "payment_type": "credit_card",
+        "payment_installments": "1",
+        "payment_value": "89.00"
+      },
+      {
+        "order_id": "8067c5e4834f3c0a3c8a4e921d65c5b1",
+        "payment_sequential": "1",
+        "payment_type": "credit_card",
+        "payment_installments": "1",
+        "payment_value": "89.00"
+      }
+    ],
+    "warnings": []
+  },
+  "get_shipment_summary": {
+    "schema_version": "day09-mcp-evidence-v1",
+    "evidence_ref": "ev__5PznHBlSqIUfmALL-CVbUnxnD0TNyPe",
+    "result_hash": "sha256:375332bf5dca52082290211aea49f2d994660adc9ccd29d8b37a20adaf9311f5",
+    "domain": "shipment",
+    "data": {
+      "order_id": "8067c5e4834f3c0a3c8a4e921d65c5b1",
+      "order_status": "unavailable",
+      "delivered_carrier_at": "2018-01-23T09:00:00-03:00",
+      "delivered_customer_at": null,
+      "estimated_delivery_at": "2018-01-31T09:00:00-03:00",
+      "shipping_limits": [
+        {
+          "order_item_id": "item-8067c5e4834f",
+          "seller_id": "seller-8067c5e4834f",
+          "shipping_limit_at": "2018-01-24T09:00:00-03:00"
+        },
+        {
+          "order_item_id": "item-8067c5e4834f",
+          "seller_id": "seller-8067c5e4834f",
+          "shipping_limit_at": "2018-04-13T09:00:00-03:00"
+        }
+      ],
+      "events": []
+    },
+    "warnings": []
+  },
+  "get_sellers": {
+    "schema_version": "day09-mcp-evidence-v1",
+    "evidence_ref": "ev_Tr1nmHxKuxIj5RBM0I6VkbAmGlEXdjrL",
+    "result_hash": "sha256:8cc9f0931acfa69b877891ab1c0685538edef5dd1f0bc4a337f07c1a44705ceb",
+    "domain": "seller",
+    "data": [
+      {
+        "seller_id": "seller-8067c5e4834f",
+        "seller_zip_code_prefix": "01001",
+        "seller_city": "sao_paulo",
+        "seller_state": "SP"
+      }
+    ],
+    "warnings": []
+  },
+  "get_payment_timeline": {
+    "schema_version": "day09-mcp-evidence-v1",
+    "evidence_ref": "ev_jWKMtTXDmpUpUgevtdYF3KvmOwX45f8n",
+    "result_hash": "sha256:906214a9c9238fa448621c6c268ce5944ad14ec88a9d87ee4d6aabcc08458c36",
+    "domain": "payment",
+    "data": {
+      "order_id": "8067c5e4834f3c0a3c8a4e921d65c5b1",
+      "payments": [
+        {
+          "order_id": "8067c5e4834f3c0a3c8a4e921d65c5b1",
+          "payment_sequential": "1",
+          "payment_type": "credit_card",
+          "payment_installments": "1",
+          "payment_value": "89.00"
+        },
+        {
+          "order_id": "8067c5e4834f3c0a3c8a4e921d65c5b1",
+          "payment_sequential": "1",
+          "payment_type": "credit_card",
+          "payment_installments": "1",
+          "payment_value": "89.00"
+        }
+      ],
+      "events": [
+        {
+          "order_id": "8067c5e4834f3c0a3c8a4e921d65c5b1",
+          "event_at": "2018-01-21T10:00:00-03:00",
+          "event_type": "captured",
+          "amount_brl": "89.00",
+          "status": "confirmed"
+        },
+        {
+          "order_id": "8067c5e4834f3c0a3c8a4e921d65c5b1",
+          "event_at": "2018-04-10T10:00:00-03:00",
+          "event_type": "captured",
+          "amount_brl": "89.00",
+          "status": "confirmed"
+        }
+      ]
+    },
+    "warnings": []
+  },
+  "get_refund_timeline": {
+    "_error": "RuntimeError: MCP tool get_refund_timeline failed: Error executing tool get_refund_timeline"
+  },
+  "get_product_context": {
+    "schema_version": "day09-mcp-evidence-v1",
+    "evidence_ref": "ev_0D70rFWTNkq6peNkFpYHsNvPDYjcFwd-",
+    "result_hash": "sha256:9e4595da1950c418303c9e394914d9328a94b7ad8586c22c7e0c794b5cb8c034",
+    "domain": "product",
+    "data": [
+      {
+        "order_item_id": "item-8067c5e4834f",
+        "product_id": "product-8067c5e4834f",
+        "seller_id": "seller-8067c5e4834f",
+        "product": {
+          "product_id": "product-8067c5e4834f",
+          "product_category_name": "utilidades_domesticas"
+        },
+        "category_name_english": "housewares"
+      },
+      {
+        "order_item_id": "item-8067c5e4834f",
+        "product_id": "product-8067c5e4834f",
+        "seller_id": "seller-8067c5e4834f",
+        "product": {
+          "product_id": "product-8067c5e4834f",
+          "product_category_name": "utilidades_domesticas"
+        },
+        "category_name_english": "housewares"
+      }
+    ],
+    "warnings": []
+  }
+}
