@@ -41,7 +41,7 @@ class TraceWriter:
             "target": target,
             "decision_code": decision_code,
             "tool_name": tool_name,
-            "evidence_refs": evidence_refs,
+            "evidence_refs": list(evidence_refs) if evidence_refs is not None else None,
             "attributes": attributes,
         }
         event.update({key: value for key, value in optional.items() if value is not None})
